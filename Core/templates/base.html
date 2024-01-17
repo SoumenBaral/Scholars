@@ -46,22 +46,23 @@
                {% if user.is_staff %}
                <li class="nav-item mx-3">
                 <a
-                  class=" btn btn-warning text-dark"
-                  href=""
+                  class=" btn-style btn btn-warning text-dark"
+                  href="{% url "addCourse" %}"
                   >Teacher DashBord</a
                 >
               </li>
-               {% endif %}
-                <li class="nav-item mx-3">
+               {% else %}
+                <li class=" nav-item mx-3">
                   <a
-                    class=" btn btn-warning text-dark"
+                    class=" btn-style btn btn-warning text-dark"
                     href=""
-                    >Profile</a
+                    >Student Profile</a
                   >
                 </li>
+                {% endif %}
                 <li class="nav-item mx-3">
                   <a
-                    class=" btn btn-danger text-dark"
+                    class=" btn-style btn btn-danger text-dark"
                     href="{% url "accounts:logout" %}"
                     >Logout</a
                   >

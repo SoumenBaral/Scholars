@@ -8,10 +8,7 @@ class Type(models.Model):
 
     def __str__(self):
         return self.Name
-
-
-
-
+    
 
 class AddCourse(models.Model):
     Name  = models.CharField(max_length=100)
@@ -34,10 +31,10 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comments by {self.name}"
 
-class BuyCar(models.Model):
+class EnrolledCourse(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
-    car = models.ForeignKey(AddCourse,on_delete=models.CASCADE)
+    courses = models.ForeignKey(AddCourse,on_delete=models.CASCADE)
 
     def __str__(self):
         return f"buy this car name: {self.car.Name}"

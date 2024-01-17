@@ -5,3 +5,7 @@ class TypeAdmin(admin.ModelAdmin):
     list_display = ['Name', 'slug']
     
 admin.site.register(models.Type, TypeAdmin)
+
+admin.site.register(models.AddCourse)
+admin.site.register(models.Comment)
+admin.site.register(models.EnrolledCourse)
