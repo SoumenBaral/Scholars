@@ -1,0 +1,49 @@
+
+.navContainer{
+    border-radius:0px 0px 30px 30px;
+    background:#7B6CD9;
+}
+.navTitle{
+    text-shadow: 2px 2px 4px #1a1919;
+    font-size: 30px;
+}
+.nav-link{
+    font-size: 20px;
+}
+.vertical-line {
+    border-left: 1px solid #000; 
+    height: 40px; 
+    margin: 0 30px;
+}
+.content-Min{
+    min-height: 50vh;
+}
+.btn-style{
+    box-shadow: 5px 5px 20px gray;
+    border-radius: 10px 25px;
+}
+.search-btn{
+    background:#7B6CD9;
+    border: none;
+}
+.banner_container{
+    background:#7B6CD9;
+    margin-top: -22px;
+
+    border-radius: 0px 0px  40% 0px;
+    padding: 10px;
+}
+.banner{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+}
+.imgCao{
+    width: 100%;
+    border-radius: 30px 0px  30% 0px;
+}
+@media screen and (max-width: 600px) {
+    .vertical-line {
+        display: none;
+    }
+}
