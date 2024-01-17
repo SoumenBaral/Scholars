@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="mt-5" style='width: 50%; margin: auto;'>
+    <h2 class="text-success">Account Activated Successfully</h2>
+  <p class='text-center text-secondary'>You can now <a class='text-decoration-none'href="{% url "accounts:login" %}" > log in</a></p>
+  </div>
+{% endblock %}
