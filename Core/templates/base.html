@@ -43,6 +43,15 @@
             <div class="p-2">
               <ul class='navbar-nav d-flex  me-auto mb-2 mb-lg-0'>
                {% if request.user.is_authenticated %}
+               {% if user.is_staff %}
+               <li class="nav-item mx-3">
+                <a
+                  class=" btn btn-warning text-dark"
+                  href=""
+                  >Teacher DashBord</a
+                >
+              </li>
+               {% endif %}
                 <li class="nav-item mx-3">
                   <a
                     class=" btn btn-warning text-dark"
