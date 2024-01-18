@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 {% load crispy_forms_tags %}
-<h3 class="text-center text-warning" >You Want to Delete</h3>
-<form style="width:50% ; margin : auto;" class='d-flex flex-wrap justify-content-center' method="post">
-    {% csrf_token %}
-    {{form|crispy}}
-    <button class ='btn btn-danger'> Delete</button>
 
-</form>
+<div class='hightContainer pt-5'>
+ <div>
+    <h3 class="text-center text-success" >You Want to Delete The Course That You Created</h3>
+    <form style="width:50% ; margin : auto;" class='d-flex flex-wrap justify-content-center' method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button class ='btn btn-danger btn-style'> Delete</button>
+    
+    </form>
+ </div>
+</div>
 
 {% endblock content %}

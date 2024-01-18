@@ -55,18 +55,19 @@
    
     <h4 class='text-center  text-success'>Let's Code Your Career </h4>
 
-<div class="d-flex cat-container justify-content-center gap-3 flex-wrap">
+<div id='Courses' class="d-flex cat-container justify-content-center gap-3 flex-wrap">
      {% for cat in categories %}
-     <a href="{% url "category_wise_post" cat.slug %}" class="text-decoration-none ">{{ cat.Name }}</a>
+     <a href="{% url "category_wise_post" cat.slug %}" onclick="scrollToTopic()" class="text-decoration-none ">{{ cat.Name }}</a>
      {% endfor %}
 </div>
 
 
-<div class='d-flex justify-content-center align-items-center mt-5'>
+<div  class='d-flex justify-content-center align-items-center mt-5'>
   <div class="d-flex justify-content-center align-items-center flex-wrap gap-5 p-5 p-md-3">
 
+  {% if data %}
   {% for i in data  %}
-        <div class="card mt-4">
+        <div class="card mt-4" id="section1">
           <div class="imgbox">
             <img
               src="{{i.image.url}}" />
@@ -86,13 +87,36 @@
           </div>
         </div>
   {% endfor %}
+
+  {% else %}
+  <div>
+    <h4 class='text-center text-danger'>No Course Found....</h4>
+  </div>
+  {% endif %}
 </div>
 </div>
   </section>
-
+ 
 
   
- 
+ <Section id='achivment' class='history-Container my-5'>
+  <div class='service'>
+    <h1>1500+</h1>
+    <p>Happy Students</p>
+  </div>
+  <div class='service'>
+    <h1>2050+</h1>
+    <p>Course Hours</p>
+  </div>
+  <div class='service'>
+    <h1>200+</h1>
+    <p>Employed Students</p>
+  </div>
+  <div class='service'>
+    <h1>5+</h1>
+    <p>Years Experience</p>
+  </div>
+ </Section>
 
 
 
