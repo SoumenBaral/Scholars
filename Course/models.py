@@ -1,5 +1,8 @@
+from tkinter.tix import Tree
 from django.db import models
 from django.contrib.auth.models import User
+
+import Course
 
 
 class Type(models.Model):
@@ -11,15 +14,15 @@ class Type(models.Model):
     
 
 class AddCourse(models.Model):
-    Name  = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=10, decimal_places=0 , default=0.00)
-    quantity = models.IntegerField(default=0)
+    teacher = models.ForeignKey(User, on_delete=models.CASCADE,related_name='teacher' )
+    Course_Title  = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=0 , null=True)
     Content = models.TextField()
-    brand = models.ForeignKey(Type,on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='carModel/media/uploads/', blank = True, null = True)
+    Type = models.ForeignKey(Type,on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='Course/media/uploads/', blank = True, null = True)
 
     def __str__ (self):
-        return self.Name
+        return self.Course_Title
 
 class Comment(models.Model):
     post = models.ForeignKey(AddCourse, on_delete=models.CASCADE,related_name='comments')

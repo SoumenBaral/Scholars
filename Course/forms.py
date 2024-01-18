@@ -4,7 +4,7 @@ from . import models
 class AddCourseFrom(forms.ModelForm):
     class Meta:
         model = models.AddCourse
-        fields = '__all__'
+        fields = ['Course_Title', 'Content', 'Type','price','image']
 
 class CommentForm(forms.ModelForm):
     class Meta:

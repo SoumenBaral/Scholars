@@ -15,6 +15,7 @@ class AddPostCreateView(CreateView):
         return reverse_lazy('home')
     
     def form_valid(self, form):
+        form.instance.teacher = self.request.user
         messages.success(self.request, 'Successfully Added Car')
         return super().form_valid(form)
     def form_invalid(self, form):
@@ -40,7 +41,7 @@ class UpdatePost(UpdateView):
     form_class = forms.AddCourseFrom
     template_name = "addCourse.html"
     pk_url_kwarg='id'
-    success_url = reverse_lazy('profile')
+    success_url = reverse_lazy('home')
 
 
 
@@ -61,6 +62,7 @@ class DetailsPost(DetailView):
     model = models.AddCourse
     pk_url_kwarg = 'id'
     template_name = 'CourseDetails.html'
+
     def post(self,request,*args,**kwargs):
         comment_form = forms.CommentForm(data = self.request.POST)
         post = self.get_object()
