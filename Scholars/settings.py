@@ -131,7 +131,7 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+CSRF_TRUSTED_ORIGINS = ['https://scholars.onrender.com','https://*.127.0.0.1']
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
