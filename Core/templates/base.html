@@ -31,13 +31,7 @@
               </li>
  
             
-             {% if request.user.is_authenticated %}
-              
-              <li class="nav-item">
-                <a class="nav-link  fw-bold text-white" href=""  > Add Car</a>
-                
-              </li>
-             {% endif %}
+         
             </ul> 
         
             <div class="p-2">
@@ -47,7 +41,7 @@
                <li class="nav-item mx-3">
                 <a
                   class=" btn-style btn btn-warning text-dark"
-                  href="{% url "addCourse" %}"
+                  href="{% url "teacher" %}"
                   >Teacher DashBord</a
                 >
               </li>

@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.views import View
 
 @method_decorator(login_required, name= 'dispatch') 
 class AddPostCreateView(CreateView):
@@ -55,7 +56,7 @@ class DeleteViewed(DeleteView):
         model = models.AddCourse
         template_name = "delete.html"
         pk_url_kwarg='id'
-        success_url = reverse_lazy('profile')
+        success_url = reverse_lazy('teacher')
 
 
 class DetailsPost(DetailView):
@@ -81,3 +82,19 @@ class DetailsPost(DetailView):
         context['comments'] = comments
         context['comment_form'] = comment_form
         return context
+
+class TeacherDashBoardView(View):
+    
+    template_name = 'TeacherDashboard.html'
+
+    def get(self, request, category_slug=None):
+        
+        data = models.AddCourse.objects.filter(teacher=request.user)
+
+        categories = models.Type.objects.all()
+
+        if category_slug is not None:
+            category = models.Type.objects.get(slug=category_slug)
+            data = data.filter(Type=category)
+        
+        return render(request, self.template_name, {"data": data, "categories": categories})

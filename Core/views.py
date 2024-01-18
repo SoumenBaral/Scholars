@@ -2,10 +2,9 @@ from typing import Type
 from django.shortcuts import render
 from django.views import View
 from Course import models
-from django.views.generic import TemplateView
 
-# class(TemplateView):
-#     template_name = 'home.html'
+
+
 class  HomeView(View):
     template_name = 'home.html'
 

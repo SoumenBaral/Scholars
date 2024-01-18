@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class='teacher_container'>
+<div class='pt-5'> 
+    <div class='d-flex justify-content-center'>
+        <img class='teacher-logo' src="{% static "img/teacher.jpg" %}" alt="">
+    </div>
+    <h5 class='text-center'>Welcome {{user.first_name}} Sir</h5>
+    <div  class='d-flex justify-content-center'>
+        <button class='btn-style btn btn-primary'><a class='text-decoration-none text-white' href="{% url "addCourse" %}">Create Course</a></button>
+    </div>
+    <div class="Card_container">
+        {% for i in data %}
+        <div class="box">
+            <h3>{{i.Course_Title}}</h3>
+            <p class="">{{i.Content|truncatewords:20}}</p>
+            <p class=" mt-5">price: {{i.price}}$</p>
+            <div class='d-flex justify-content-center gap-1'>
+                <button><a href="{% url "edit" i.id%}">Edit</a></button>
+                <button class='btn-danger'><a href="{% url "delete" i.id%}">Delete</a></button>
+                <button>Details</button>
+            </div>
+            
+            <span class='count'>{{i.price}}$</span>
+          </div>
+        {% endfor %}
+        
+      </div>
+</div>
+</section>
+{% endblock content %}

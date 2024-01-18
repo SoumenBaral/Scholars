@@ -1,11 +1,11 @@
-*{
+/* *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'poppins',sans-serif;
   text-transform: capitalize;
   transition: all 0.3 linear;
-}
+} */
 .navContainer{
     border-radius:0px 0px 30px 30px;
     background:#7B6CD9;
@@ -59,13 +59,13 @@
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
     transition: 0.3s;
     padding: 30px 50px;
-    background: #fff;
+    background: #b6adad;
     cursor: pointer;
     margin-right: 30px;
   }
   
   .card:hover {
-    height: 500px;
+    height: 450px;
   }
   
   .imgbox {
@@ -73,10 +73,10 @@
     width: 100%;
     height: 100%;
     transform: translateY(-80px);
-    z-index: 99;
+    z-index: 90;
   }
   
-  img {
+  .imgbox img {
     width: 100%;
     border-radius: 10px;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
@@ -111,7 +111,108 @@
     background-image: linear-gradient(90deg,  #74EbD5 0%, #9face6 100% );
   }
   .box{
-    background: #000;
+    width: 300px;
+    height: 500px;
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    padding-top: 80px;
+    margin: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    box-shadow: 0px,3px ,5px ,rgba(0,0,0,.3);
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+  }
+  .box h3{
+    margin-top: 20px;
+    font-size: 25px;
+    padding: 20px,0;
+    color: #444;
+  }
+  .box p {
+    font-size: 15px;
+    color: #777;
+  }
+  .box button{
+    width: 140px;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-top: 40px;
+  }
+  .box button:hover{
+    letter-spacing: 2px;
+    opacity: 0.8;
+
+  }
+  .box::before{
+    width: 100%;
+    height: 100%;
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .box::after{
+    width: 100%;
+    height: 100%;
+    background: #FBDA61;
+    background-image: linear-gradient(45deg,#FBDA61 0%,#Ff5acd 100%);
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    clip-path: circle(20% at 90% 10%);
+    transition: 0.2s;
+
+  }
+  .box .count{
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: bolder;
+    color: #fff;
+
+  }
+  .box:hover::after{
+    clip-path: circle(100%);
+  }
+  .box:hover h3{
+    color: #fff;
+  }
+  .box:hover p{
+    color: #fff;
+  }
+  .box:hover p{
+    color: #fff;
+  }
+  .box:hover button{
+    background: white;
+    color: #444;
+  }
+  .teacher_container{
+    margin-top: -30px;
+    background-color: #74EbD5;
+    background-image: linear-gradient(90deg,  #74EbD5 0%, #9face6 100% );
+  }
+  .box img{
+    position: absolute;
+    z-index: -2;
+  }
+  .teacher-logo{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
   }
 @media screen and (max-width: 600px) {
     .vertical-line {
