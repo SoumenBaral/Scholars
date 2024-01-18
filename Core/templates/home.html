@@ -53,36 +53,33 @@
     <p class='text-center text-primary'>LATEST COURSES</p>
   
    
-    <h4 class='text-center p-4 text-success'>Choose Your Fevorite Book </h4>
+    <h4 class='text-center  text-success'>Let's Code Your Career </h4>
 
-<div class="d-flex  justify-content-center gap-2 flex-wrap">
+<div class="d-flex cat-container justify-content-center gap-3 flex-wrap">
      {% for cat in categories %}
-     <a href="{% url "category_wise_post" cat.slug %}" class="text-decoration-none text-dark btn btn-outline-warning">{{ cat.Name }}</a>
+     <a href="{% url "category_wise_post" cat.slug %}" class="text-decoration-none ">{{ cat.Name }}</a>
      {% endfor %}
 </div>
 
-<h4 class='text-center text-warning p-4'><span class='text-success'>Book</span> found <span class='badge bg-danger rounded-pill top-0'>{{data | length}}</span></h4>
-<div class='d-flex justify-content-center align-items-center'>
+
+<div class='d-flex justify-content-center align-items-center mt-5'>
   <div class="d-flex justify-content-center align-items-center flex-wrap gap-5 p-5 p-md-3">
 
   {% for i in data  %}
-        <div class="card">
+        <div class="card mt-4">
           <div class="imgbox">
             <img
               src="{{i.image.url}}" />
-              <p class='text-center mt-2 fw-bold'>{{i.Course_Title}}</p>
+              <h5 class='text-center mt-2 fw-bold'>{{i.Course_Title|truncatewords:6}}</h5>
           </div>
 
           <div class="content mt-5">
-            <p class=" mt-5">price: {{i.price}}$</p>
+            <h4 class=" mt-5">price: {{i.price}}$</h4>
             <p class="card-text">{{i.Content|truncatewords:10}}</p>
             <div class ='mb-4'>
-              <h6>Categories:</h6>
-              <div class='d-flex flex-wrap' >
-                  {% for cat in i.Type.all %} 
-                      <button class="badge bg-primary bg-opasity-75 m-1 p-1 " disabled ><small>{{cat}} </small></button>
-                  {% endfor %}
-              </div>
+              
+              <button class="badge bg-primary bg-opasity-75 m-1 p-1 " disabled ><small>{{i.Type.Name}}</small></button>
+           
               <button class='btn btn-success mb-1 btn-style'><a class='text-decoration-none text-white' href="{% url "details_view" i.id %}">Course Details</a></button>
               
           </div>
