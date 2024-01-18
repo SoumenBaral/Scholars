@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class='teacher_container'>
+    <div class='d-flex justify-content-center'>
+        <img class='teacher-logo' src="{% static "img/studentlife.webp" %}" alt="">
+    </div>
+    <h5 class='text-center'>Welcome {{request.user.first_name}} {{request.user.last_name}} </h5>
+    
+    <h6 class='text-center'>{{ request.user.email }}</h6>
+     
+    <h3 class='text-center'>Your Course  </h3>
+    
+    <div class="Card_container">
+        {% for i in enrolled %}
+        <div class="box">
+            <h3>{{i.courses.Course_Title}}</h3>
+            <p class="">{{i.courses.Content|truncatewords:40}}</p>
+            <p class=" fw-bold mt-5">price: {{i.courses.price}}$</p>
+            <div class='d-flex justify-content-center gap-1'>
+                <button><a class='text-decoration-none text-secondary' href="{% url "details_view" i.courses.id %}"> Details</a></button>
+            </div>
+            
+            <span class='count'>{{i.courses.price}}$</span>
+          </div>
+        {% endfor %}
+        
+      </div>
+</section>
+{% endblock content %}

@@ -2,7 +2,7 @@ from tkinter.tix import Tree
 from django.db import models
 from django.contrib.auth.models import User
 
-import Course
+
 
 
 class Type(models.Model):
@@ -40,4 +40,4 @@ class EnrolledCourse(models.Model):
     courses = models.ForeignKey(AddCourse,on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"buy this car name: {self.car.Name}"
+        return f"buy this car name: {self.courses.Course_Title}"

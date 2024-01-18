@@ -3,48 +3,47 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class='d-md-flex  justify-content-center align-items-center bg-dark p-4'>
+<div class='d-md-flex  justify-content-center align-items-center banner_container w-75 bg-dark p-4'>
    <div class='col-md-7 d-md-flex  justify-content-center '>
        <img src="{{object.image.url}}" class="card-img-top" style='width: 90%;' alt="...">
    </div>
    
     <div class="col-md-5 text-light">
-            <h2 class = "text-primary text-center mb-3">Car Details</h2>
-            <p class=""><span class="text-secondary">Name:</span>  {{object.Name}}</p>
-            <p class=""><span class="text-secondary">Price: </span>{{object.price}}$</p>
-            <p class=""><span class="text-secondary">Quntity: </span>{{object.quantity}}</p>
-            <p class='text-secondary'>Discription:</p>
+            <h2 class = "text-primary text-center mb-3">Course  Details</h2>
+            <h5 class=""><span class="text-secondary">Course Title:</span>  {{object.Course_Title}}</h5>
+            <h5 class=""><span class="text-secondary">Price: </span>{{object.price}}$</h5>
+            <h5 class='text-secondary'>Discription:</h5>
             <p class='mx-4'>{{object.Content}}</p>
-            <h5 class=""><span class="text-secondary">Brand Name: </span>{{object.brand.Name}}</h3>
+            <h5 class=""><span class="text-secondary">Depertment: </span>{{object.Type.Name}}</h3>
             
                 {% if request.user.is_authenticated %}
-                <form method="post">
-                    {% csrf_token %}
-                    <input type="submit" name="buy_car" value="Buy Now" class="btn btn-primary w-50 m-5 mt-3">
-                </form>
+                <a href="{% url "enrolled" object.id %}" class="btn btn-primary my-4">Borrow Book</a>
             {% endif %}
     </div>
   
 </div>
 
 {% if user.is_authenticated %}
-<div class="card m-2">
-    <h5 class="p-3">Total Comments : {{comments | length}}</h5>
+<div class=" m-2">
+    <h5 class="p-3 comment-count text-center">Total Comments : {{comments | length}}</h5>
     {% for comment in comments %}
-  <div class="card-body border m-2">
+  <div class="card-body border m-2 shadow-sm w-75 mx-auto rounded-pill px-5 pt-3">
         <p><b>{{comment.name}}</b> {{comment.created_on}}</p>
         <p>{{comment.body}}</p>
+        <hr class='text-warning'>
     </div>
+    
+    
     {% endfor %}
 </div>
-<div class="card m-2">
+<div class=" w-50 m-auto p-5 comment">
     <div class="card-body">
         <form method="post">
             <h1>Add Comment</h1>
             {% csrf_token %}
             {{comment_form | crispy}}
 
-            <button class="btn btn-warning">Submit</button>
+            <button class="btn btn-warning btn-style p-3 fw-bold text-white content-end">Submit</button>
     </div>
 </div>
 {% endif %}

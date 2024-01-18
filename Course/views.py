@@ -1,6 +1,8 @@
-from django.shortcuts import render,redirect
+from datetime import datetime
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404, render,redirect
 from . import models,forms
-from django.views.generic import CreateView ,UpdateView,DeleteView,DetailView
+from django.views.generic import CreateView ,UpdateView,DeleteView,DetailView,ListView
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils.decorators import method_decorator
@@ -98,3 +100,30 @@ class TeacherDashBoardView(View):
             data = data.filter(Type=category)
         
         return render(request, self.template_name, {"data": data, "categories": categories})
+    
+
+class EnrolledCourseView(View):
+     def get(self,request,id, **kwargs):
+        courses = get_object_or_404(models.AddCourse, id = id)
+        user = self.request.user
+        models.EnrolledCourse.objects.create(
+            courses = courses,
+            user = user,
+            date=datetime.now(),
+        )
+        messages.success(request, 'Enrolled  successful Please Review This Course so Another be inspired to Enrolled ')
+        return redirect('home') 
+
+
+
+
+
+class StudentView(LoginRequiredMixin, ListView):
+    model = models.EnrolledCourse
+    template_name = 'StudentDashboard.html'
+    context_object_name = 'enrolled'
+
+    def get_queryset(self):
+        user_id = self.request.user.id
+        queryset =  models.EnrolledCourse.objects.filter(user_id=user_id)
+        return queryset
