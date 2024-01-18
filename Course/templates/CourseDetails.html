@@ -17,7 +17,7 @@
             <h5 class=""><span class="text-secondary">Depertment: </span>{{object.Type.Name}}</h3>
             
                 {% if request.user.is_authenticated %}
-                <a href="{% url "enrolled" object.id %}" class="btn btn-primary my-4">Borrow Book</a>
+                <a href="{% url "enrolled" object.id %}" class="btn btn-primary my-4">Enroll Now</a>
             {% endif %}
     </div>
   

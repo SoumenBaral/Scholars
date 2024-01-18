@@ -9,6 +9,19 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.views import View
 
+   
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+
+def send_Mail(user,mail_subject,template):
+        message= render_to_string(template, {
+                "user": user,
+                
+            })
+        send_email =EmailMultiAlternatives(mail_subject,"", to=[user.email])
+        send_email.attach_alternative(message,'text/html')
+        send_email.send()
+
 @method_decorator(login_required, name= 'dispatch') 
 class AddPostCreateView(CreateView):
     model = models.AddCourse
@@ -100,7 +113,8 @@ class TeacherDashBoardView(View):
             data = data.filter(Type=category)
         
         return render(request, self.template_name, {"data": data, "categories": categories})
-    
+ 
+
 
 class EnrolledCourseView(View):
      def get(self,request,id, **kwargs):
@@ -111,6 +125,7 @@ class EnrolledCourseView(View):
             user = user,
             date=datetime.now(),
         )
+        send_Mail(self.request.user,'Successfully Enrolled','enroll_mail.html')
         messages.success(request, 'Enrolled  successful Please Review This Course so Another be inspired to Enrolled ')
         return redirect('home') 
 

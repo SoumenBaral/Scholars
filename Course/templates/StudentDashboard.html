@@ -9,13 +9,13 @@
     
     <h6 class='text-center'>{{ request.user.email }}</h6>
      
-    <h3 >Your Course  </h3>
+    <h3 class='text-center'>Your Course  </h3>
     
     <div class="Card_container">
         {% for i in enrolled %}
         <div class="box">
             <h3>{{i.courses.Course_Title}}</h3>
-            <p class="">{{i.courses.Content|truncatewords:40}}</p>
+            <p class="">{{i.courses.Content|truncatewords:30}}</p>
             <p class=" fw-bold mt-5">price: {{i.courses.price}}$</p>
             <div class='d-flex justify-content-center gap-1'>
                 <button><a class='text-decoration-none text-secondary' href="{% url "details_view" i.courses.id %}"> Details</a></button>

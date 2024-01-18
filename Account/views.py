@@ -24,13 +24,13 @@ from django.template.loader import render_to_string
 class RegistrationFormView(CreateView):
     template_name = 'register.html'
     form_class = forms.RegistrationForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('accounts:login')
 
     def form_valid(self, form):
         user = form.save(commit=False)
         user.is_active = False
         user.save()
-
+        messages.success(self.request, 'Please Check your Account and Active Your Account')
         current_site = get_current_site(self.request)
         subject = 'Activate Your Account'
         message = render_to_string('account_activation_email.html', {
