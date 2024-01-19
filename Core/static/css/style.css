@@ -80,7 +80,7 @@
     border-radius: 10px;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
   }
-  .imgbox h5:hover{
+  .Course_title:hover{
     color: #fff;
   }
   .content {
@@ -286,6 +286,9 @@
 }
 .colorX{
   color:#7B6CD9;
+}
+.Course_title {
+  color: rgb(68, 57, 57);
 }
 @media screen and (max-width: 600px) {
     .vertical-line {
