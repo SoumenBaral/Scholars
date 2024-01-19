@@ -38,18 +38,12 @@ class AddPostCreateView(CreateView):
         response = super().form_invalid(form)
         messages.warning(self.request,"can't not create Post For this Car ")
         return response
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['type'] = 'Create'
+        return context
 
-def EditPost(request,id):
-    post = models.Posts.objects.get(pk=id)
-    print(post.Name)
-    if request.method == 'POST':
-        form = forms.AddPost(request.POST ,instance=post)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-    else:
-        form = forms.AddPost(instance=post)
-        return  render(request,'addCourse.html',{"form":form})
+
 
 
 class UpdatePost(UpdateView):
@@ -57,7 +51,12 @@ class UpdatePost(UpdateView):
     form_class = forms.AddCourseFrom
     template_name = "addCourse.html"
     pk_url_kwarg='id'
-    success_url = reverse_lazy('home')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['type'] = 'Update'
+        return context
+    
+    success_url = reverse_lazy('teacher')
 
 
 

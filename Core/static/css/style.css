@@ -237,6 +237,10 @@
     background: #7B6CD9;
     box-shadow: 20px 10px 100px gray;
     border-radius: 30px 100px;
+    
+  }
+  .comment input{
+    width: 100%;
   }
   .footer-container{
     background: #7B6CD9;
@@ -258,9 +262,42 @@
     justify-content: center;
     border-radius: 0% 100px 100px 0%;
   }
+.about_container{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 30px;
+  width: 80%;
+  margin: auto;
+  gap: 30px;
 
+}
+.about_container img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+.imgabout{
+  background: #7B6CD9;
+  color: white;
+  padding: 40px;
+  box-shadow: 10px 20px 30px gray;
+  border-radius: 30px 20px ;
+}
+.colorX{
+  color:#7B6CD9;
+}
 @media screen and (max-width: 600px) {
     .vertical-line {
         display: none;
+    }
+    .about_container{
+      display: block;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 30px;
+      margin: auto;
+      gap: 30px;
+    
     }
 }

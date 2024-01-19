@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
 <!-- Carousel wrapper -->
 
@@ -49,15 +50,15 @@
   <!-- Carousel wrapper -->
 
   <!-- Couse Section -->
-  <section class='mt-5'>
+  <section class='mt-5' id='Courses'>
     <p class='text-center text-primary'>LATEST COURSES</p>
   
    
-    <h4 class='text-center  text-success'>Let's Code Your Career </h4>
+    <h4  class='text-center  text-success'>Let's Code Your Career </h4>
 
-<div id='Courses' class="d-flex cat-container justify-content-center gap-3 flex-wrap">
+<div  class="d-flex cat-container justify-content-center gap-3 flex-wrap">
      {% for cat in categories %}
-     <a href="{% url "category_wise_post" cat.slug %}" onclick="scrollToTopic()" class="text-decoration-none ">{{ cat.Name }}</a>
+     <a href="{% url "category_wise_post" cat.slug %}#Courses" onclick="scrollToTopic()" class="text-decoration-none ">{{ cat.Name }}</a>
      {% endfor %}
 </div>
 
@@ -118,6 +119,26 @@
   </div>
  </Section>
 
+ <h3 class='text-center text-success my-4'>About Us </h3>
+
+<div id="about" class='about_container' >
+<div class='imgabout'>
+  <p class='text-center'>You can search free CSS templates on Google using different keywords such as templatemo portfolio, templatemo gallery, templatemo blue color, etc.</p>
+  <div class='d-flex justify-container-center align-items-center gap-4'>
+    <img src="{% static "img/1.jpg" %}" alt="">
+    <div >
+      <p><small>Full Stack Master</small></p>
+      <h4>Braliana David</h4>
+    </div>
+  </div>
+  
+</div>
+  <div>
+    <p class='colorX'>TESTIMONIALS</p>
+    <h3>What They Say About Us?</h3>
+    <p>You can search free CSS templates on Google using different keywords such as templatemo portfolio, templatemo gallery, templatemo blue color, etc.</p>
+  </div>
+</div>
 
 
 {% endblock content %}
