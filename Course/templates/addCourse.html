@@ -6,7 +6,7 @@
 <div class='p-5 hightContainer'>
     <h1 class="text-center text-primary" >{{type}} Course</h1>
 
-    <form class="mx-auto col-sm-10 col-md-8 col-lg-6 col-xl-4 bg-primary p-4 text-white bg-opacity-25 rounded border border-primary shadow-lg" method="post" enctype="multipart/form-data">
+    <form class="mx-auto text-black col-sm-10 col-md-8 col-lg-6 col-xl-4 bg-primary p-4  bg-opacity-25 costom-radias border border-primary shadow-lg" method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
         {{form|crispy}}

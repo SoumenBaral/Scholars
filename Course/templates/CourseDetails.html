@@ -3,48 +3,51 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class='d-md-flex  justify-content-center align-items-center banner_container w-75 bg-dark p-4'>
-   <div class='col-md-7 d-md-flex  justify-content-center '>
-       <img src="{{object.image.url}}" class="card-img-top" style='width: 90%;' alt="...">
-   </div>
-   
-    <div class="col-md-5 text-light">
-            <h2 class = "text-primary text-center mb-3">Course  Details</h2>
-            <h5 class=""><span class="text-secondary">Course Title:</span>  {{object.Course_Title}}</h5>
-            <h5 class=""><span class="text-secondary">Price: </span>{{object.price}}$</h5>
-            <h5 class='text-secondary'>Discription:</h5>
-            <p class='mx-4'>{{object.Content}}</p>
-            <h5 class=""><span class="text-secondary">Depertment: </span>{{object.Type.Name}}</h3>
-            
-                {% if request.user.is_authenticated %}
-                <a href="{% url "enrolled" object.id %}" class="btn btn-primary my-4">Enroll Now</a>
-            {% endif %}
-    </div>
-  
-</div>
-
-{% if user.is_authenticated %}
-<div class=" m-2">
-    <h5 class="p-3 comment-count text-center">Total Comments : {{comments | length}}</h5>
-    {% for comment in comments %}
-  <div class="card-body border m-2 shadow-sm w-75 mx-auto rounded-pill px-5 pt-3">
-        <p><b>{{comment.name}}</b> {{comment.created_on}}</p>
-        <p>{{comment.body}}</p>
-        <hr class='text-warning'>
-    </div>
-    
-    
-    {% endfor %}
-</div>
-<div class=" w-50 m-auto p-5 comment">
-    <div class="card-body ">
-        <form method="post">
-            <h1>Add Comment</h1>
-            {% csrf_token %}
-            {{comment_form | crispy}}
-
-            <button class="btn btn-warning btn-style p-3 fw-bold text-white content-end">Submit</button>
-    </div>
-</div>
+<section style='min-height: 100vh;'>
+    <div class='d-md-flex  justify-content-center align-items-center banner_container w-75 bg-dark p-4'>
+        <div class='col-md-7 d-md-flex  justify-content-center '>
+            <img src="{{object.image.url}}" class="card-img-top" style='width: 90%;' alt="...">
+        </div>
+        
+         <div class="col-md-5 text-light pe-1">
+                 <h2 class = "colorX text-center mb-3 my-4 navTitle">Course  Details</h2>
+                 <h5 class=""><span class="text-secondary">Course Title:</span>  {{object.Course_Title}}</h5>
+                 <h5 class=""><span class="text-secondary">Price: </span>{{object.price}}$</h5>
+                 <h5 class='text-secondary'>Discription:</h5>
+                 <p class='mx-4'><small>{{object.Content}}</small></p>
+                 <h6 class="pe-5"><span class="text-secondary">Depertment: </span>{{object.Type.Name}}</h6>
+                 
+                     {% if request.user.is_authenticated %}
+                     <a href="{% url "enrolled" object.id %}" class="btn btn-primary my-4">Enroll Now</a>
+                 {% endif %}
+         </div>
+       
+     </div>
+     
+     
+     <div class=" m-2">
+         <h5 class="p-3 comment-count text-center  " style='text-shadow: 1px 0px 1px gray;'>Total Comments : {{comments | length}}</h5>
+         {% for comment in comments %}
+       <div class="card-body border m-2 shadow-sm w-75 mx-auto rounded-pill px-5 pt-3">
+             <p><b style='text-shadow: 1px 1px 1px gray;' class="">{{comment.name}}</b> {{comment.created_on}}</p>
+             <p>{{comment.body}}</p>
+             <hr class='text-warning'>
+         </div>
+         
+         
+         {% endfor %}
+     </div>
+     {% if user.is_authenticated %}
+     <div class=" w-50 m-auto p-3 p-md-5 comment">
+         <div class="card-body ">
+             <form method="post">
+                 <h1>Add Comment</h1>
+                 {% csrf_token %}
+                 {{comment_form | crispy}}
+     
+                 <button class="btn btn-warning btn-style p-3 ms-5 ms-md-0 fw-bold text-white content-end">Submit</button>
+         </div>
+     </div>
+</section>
 {% endif %}
 {% endblock content %}
