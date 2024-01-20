@@ -289,6 +289,10 @@
 }
 .Course_title {
   color: rgb(68, 57, 57);
+  text-shadow: 2px 2px 4px gainsboro;
+}
+.custom_input label{
+ margin-top: 10px;
 }
 @media screen and (max-width: 600px) {
     .vertical-line {
