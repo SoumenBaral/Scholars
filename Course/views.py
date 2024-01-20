@@ -32,11 +32,11 @@ class AddPostCreateView(CreateView):
     
     def form_valid(self, form):
         form.instance.teacher = self.request.user
-        messages.success(self.request, 'Successfully Added Car')
+        messages.success(self.request, 'Successfully Added a new Course sir. ')
         return super().form_valid(form)
     def form_invalid(self, form):
         response = super().form_invalid(form)
-        messages.warning(self.request,"can't not create Post For this Car ")
+        messages.warning(self.request,"can't not create Post For this Course ")
         return response
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
