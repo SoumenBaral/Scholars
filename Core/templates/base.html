@@ -20,7 +20,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="d-flex" method="get"  role="search" action='{% url "home" %}#Courses'>
+            <form class="d-flex my-4 my-md-0" method="get"  role="search" action='{% url "home" %}#Courses'>
                 <button class="search-btn" type="submit"> <i class="fas fa-search text-white fw-bold"></i></button>
               <input class="form-control "  name="q" type="search" placeholder="Search..." aria-label="Search">
              
@@ -53,7 +53,7 @@
               <ul class='navbar-nav d-flex  me-auto mb-2 mb-lg-0'>
                {% if request.user.is_authenticated %}
                {% if user.is_staff %}
-               <li class="nav-item mx-3">
+               <li class="nav-item mx-md-3 mx-0">
                 <a
                   class=" btn-style btn btn-warning text-dark"
                   href="{% url "teacher" %}"
@@ -61,7 +61,7 @@
                 >
               </li>
                {% else %}
-                <li class=" nav-item mx-3">
+                <li class=" nav-item mx-md-3 mx-0">
                   <a
                     class=" btn-style btn btn-warning text-dark"
                     href="{% url "student" %}"
@@ -69,7 +69,7 @@
                   >
                 </li>
                 {% endif %}
-                <li class="nav-item mx-2 ">
+                <li class="nav-item mx-0 mx-md-2 ">
                   <a
                     class=" btn-style btn btn-danger text-dark mt-4 mt-md-0"
                     href="{% url "accounts:logout" %}"
@@ -77,7 +77,7 @@
                   >
                 </li>
                 {% else %} 
-                <li class="nav-item mx-md-3 my-2 my-md-0">
+                <li class="nav-item mx-md-3 mx-0 my-2 my-md-0">
                   <a
                     class=" btn btn-warning text-dark btn-style"
                      href="{% url 'accounts:register' %}"
