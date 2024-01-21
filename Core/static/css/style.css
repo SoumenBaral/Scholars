@@ -89,7 +89,7 @@ body {
   .content {
     padding: 10px 20px;
     text-align: center;
-    transform: translateY(-450px);
+    transform: translateY(-350px);
     opacity: 0;
     transition: 0.3s;
   }

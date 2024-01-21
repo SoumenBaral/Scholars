@@ -117,10 +117,14 @@ class TeacherDashBoardView(View):
 
 class EnrolledCourseView(View):
      def get(self,request,id, **kwargs):
-        courses = get_object_or_404(models.AddCourse, id = id)
+        course = get_object_or_404(models.AddCourse, id = id)
         user = self.request.user
+        if models.EnrolledCourse.objects.filter(user=user, courses=course).exists():
+            messages.warning(request, 'You are already enrolled in this course.')
+            return redirect('home')
+
         models.EnrolledCourse.objects.create(
-            courses = courses,
+            courses = course,
             user = user,
             date=datetime.now(),
         )

@@ -17,7 +17,7 @@
                  <p class='mx-4'><small>{{object.Content}}</small></p>
                  <h6 class="pe-5"><span class="text-secondary">Depertment: </span>{{object.Type.Name}}</h6>
                  
-                     {% if request.user.is_authenticated %}
+                 {% if request.user.is_authenticated and not request.user.is_staff %}
                      <a href="{% url "enrolled" object.id %}" class="btn btn-primary my-4">Enroll Now</a>
                  {% endif %}
          </div>
@@ -37,7 +37,7 @@
          
          {% endfor %}
      </div>
-     {% if user.is_authenticated %}
+     {% if user.is_authenticated  %}
      <div class=" w-50 w-sm m-auto p-3 p-md-5 comment">
 
 
