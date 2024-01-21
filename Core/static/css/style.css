@@ -1,4 +1,7 @@
-
+body {
+  margin: 0;
+  padding: 0;
+}
 .navContainer{
     border-radius:0px 0px 30px 30px;
     background:#7B6CD9;
@@ -299,10 +302,7 @@
   border-radius: 10px  60px;
 }
 @media screen and (max-width: 600px) {
-  .body{
-    margin: 0;
-    padding: 0;
-  }
+
     .vertical-line {
         display: none;
     }

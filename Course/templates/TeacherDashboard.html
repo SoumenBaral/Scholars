@@ -17,9 +17,9 @@
             <p class="">{{i.Content|truncatewords:20}}</p>
             <p class=" mt-5">price: {{i.price}}$</p>
             <div class='d-flex justify-content-center  gap-1'>
-                <button><a class='text-decoration-none text-warning shadow' href="{% url "edit" i.id%}">Edit</a></button>
-                <button ><a  class='text-decoration-none text-danger shadow' href="{% url "delete" i.id%}">Delete</a></button>
-                <button><a class='text-decoration-none shadow' href="{% url "details_view" i.id%}">Details</a></button>
+                <button><a class='text-decoration-none ' href="{% url "edit" i.id%}">Edit</a></button>
+                <button ><a  class='text-decoration-none  ' href="{% url "delete" i.id%}">Delete</a></button>
+                <button ><a class='text-decoration-none ' href="{% url "details_view" i.id%}">Details</a></button>
             </div>
             
             <span class='count'>{{i.price}}$</span>
